@@ -12,10 +12,10 @@ rm -Rf /etc/SCRIPT/* /usr/bin/gerar* /usr/bin/master* /etc/texto-adm /etc/newadm
 clear
 IVAR="/etc/http-instas"
 SCPT_DIR="/etc/SCRIPT"
-SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2luZmVjdGVkNTIxL0dlbmVyYWRvci9tYXN0ZXIvZ2VyYWRvcgo="
-CRIMSON="aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy8wbDFtdWxpZDR5cGI2OWgvZ2VyYXIuc2gK"
-SABBATH="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2luZmVjdGVkNTIxL0dlbmVyYWRvci9tYXN0ZXIvZ2VyYWRvci9odHRwLXNlcnZlci5weQo="
-FLOYD="aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy96eWFzN3R1djJkZXRhYXYvZ2VyYXJtYXN0ZXIuc2gK"
+SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2luZmVjdGVkNTIxL2dvbGRlbm1hc3Rlci9tYXN0ZXIvcmVxdWVzdAo="
+CRIMSON="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2luZmVjdGVkNTIxL2dvbGRlbm1hc3Rlci9tYXN0ZXIvcmVxdWVzdC9nZXJhci5zaAo="
+SABBATH="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2luZmVjdGVkNTIxL2dvbGRlbm1hc3Rlci9tYXN0ZXIvcmVxdWVzdC9odHRwLXNlcnZlci5weQo="
+FLOYD="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2luZmVjdGVkNTIxL2dvbGRlbm1hc3Rlci9tYXN0ZXIvcmVxdWVzdC9tYXN0ZXIuc2gK"
 SUB_DOM='base64 -d'
 rm $(pwd)/$0
 ofus () {
