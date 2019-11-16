@@ -44,7 +44,7 @@ veryfy_fun () {
 [[ ! -d ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
 unset ARQ
 case $1 in
-"gerar.sh")ARQ="/usr/bin/";;
+#"gerar.sh")ARQ="/usr/bin/";;
 "master.sh")ARQ="/usr/bin/";;
 "http-server.py")ARQ="/bin/";;
 *)ARQ="${SCPT_DIR}/";;
@@ -96,7 +96,8 @@ rm $HOME/lista-arq
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 echo "/usr/bin/master.sh" > /usr/bin/master && chmod +x /usr/bin/master
 #cp /etc/SCRIPT/gerar.sh /usr/bin/gerar.sh
-echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
+#echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
+chmod 644 /etc/SCRIP/http-server.py
 
 echo -e "\033[1;33mInstalacion finalizada\n\n"
 
