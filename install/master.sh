@@ -73,8 +73,8 @@ wget -O $HOME/$arqx ${REQUEST}/${arqx} > /dev/null 2>&1 && {
 echo -e "\033[1;31m- \033[1;32mRecebido Con Exito!"
 #TOOLBAND=$(echo $CRIMSON|$SUB_DOM)
 #wget -O /etc/SCRIPT/gerar.sh $TOOLBAND  &> /dev/null && chmod 755 /etc/SCRIPT/gerar.sh
-BLACK=$(echo $SABBATH|$SUB_DOM)
-wget -O /etc/SCRIPT/http-server.py $BLACK  &> /dev/null && chmod 755 /etc/SCRIPT/http-server.py
+#BLACK=$(echo $SABBATH|$SUB_DOM)
+#wget -O /etc/SCRIPT/http-server.py $BLACK  &> /dev/null && chmod 755 /etc/SCRIPT/http-server.py
 #PINK=$(echo $FLOYD|$SUB_DOM)
 #wget -O /usr/bin/master.sh $PINK  &> /dev/null && chmod 755 /usr/bin/master.sh
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
