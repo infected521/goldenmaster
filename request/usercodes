@@ -1,22 +1,4 @@
 #!/bin/bash
-fun_trans () { 
-local texto
-local retorno
-declare -A texto
-[[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
-source /etc/texto-adm
-if [[ -z $(echo ${texto[$2]}) ]]; then
-ENGINES=(aspell google deepl bing spell hunspell apertium yandex)
-  while [[ -z $retorno ]]; do
-    NUM="$(($RANDOM%${#ENGINES[@]}))"
-    retorno="$(source trans -e ${ENGINES[$NUM]} -b pt:$1 "$2"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
-  done
- echo "texto[$2]='$retorno'"  >> /etc/texto-adm
- echo "$retorno"
-else
- echo "${texto[$2]}"
-fi
-}
 declare -A TIMEUS
 SCPdir="/etc/newadm"
 SCPusr="${SCPdir}/ger-user"
