@@ -45,6 +45,7 @@ veryfy_fun () {
 unset ARQ
 case $1 in
 "gerar.sh")ARQ="/usr/bin/";;
+"master.sh")ARQ="/usr/bin/";;
 "http-server.py")ARQ="/bin/";;
 *)ARQ="${SCPT_DIR}/";;
 esac
@@ -70,12 +71,12 @@ for arqx in `cat $HOME/lista-arq`; do
 echo -ne "\033[1;33m Descargando Archivos \033[1;31m[$arqx] "
 wget -O $HOME/$arqx ${REQUEST}/${arqx} > /dev/null 2>&1 && {
 echo -e "\033[1;31m- \033[1;32mRecebido Con Exito!"
-TOOLBAND=$(echo $CRIMSON|$SUB_DOM)
-wget -O /etc/SCRIPT/gerar.sh $TOOLBAND  &> /dev/null && chmod 755 /etc/SCRIPT/gerar.sh
+#TOOLBAND=$(echo $CRIMSON|$SUB_DOM)
+#wget -O /etc/SCRIPT/gerar.sh $TOOLBAND  &> /dev/null && chmod 755 /etc/SCRIPT/gerar.sh
 BLACK=$(echo $SABBATH|$SUB_DOM)
 wget -O /etc/SCRIPT/http-server.py $BLACK  &> /dev/null && chmod 755 /etc/SCRIPT/http-server.py
-PINK=$(echo $FLOYD|$SUB_DOM)
-wget -O /usr/bin/master.sh $PINK  &> /dev/null && chmod 755 /usr/bin/master.sh
+#PINK=$(echo $FLOYD|$SUB_DOM)
+#wget -O /usr/bin/master.sh $PINK  &> /dev/null && chmod 755 /usr/bin/master.sh
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
 } || echo -e "\033[1;31m- \033[1;31mFalla (no recebido!)"
 done
@@ -94,7 +95,7 @@ echo "$Key" > $IVAR2
 rm $HOME/lista-arq
 echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
 echo "/usr/bin/master.sh" > /usr/bin/master && chmod +x /usr/bin/master
-cp /etc/SCRIPT/gerar.sh /usr/bin/gerar.sh
+#cp /etc/SCRIPT/gerar.sh /usr/bin/gerar.sh
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
 
 echo -e "\033[1;33mInstalacion finalizada\n\n"
