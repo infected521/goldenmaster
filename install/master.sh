@@ -47,6 +47,7 @@ case $1 in
 #"gerar.sh")ARQ="/usr/bin/";;
 "master.sh")ARQ="/usr/bin/";;
 "http-server.py")ARQ="/bin/";;
+"http-server.py")ARQ="/etc/SCRIPT";;
 *)ARQ="${SCPT_DIR}/";;
 esac
 mv -f $HOME/$1 ${ARQ}/$1
