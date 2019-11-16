@@ -95,8 +95,8 @@ echo -e "\033[1;36m-------------------------------------------------------------
 echo "/usr/bin/master.sh" > /usr/bin/master && chmod +x /usr/bin/master
 #cp /etc/SCRIPT/gerar.sh /usr/bin/gerar.sh
 #echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
-BLACK=$(echo $SABBATH|$SUB_DOM)
-wget -O /etc/SCRIPT/http-server.py $BLACK  &> /dev/null && chmod 644 /etc/SCRIPT/http-server.py
+#BLACK=$(echo $SABBATH|$SUB_DOM)
+cp /bin/http-server.sh /etc/SCRIPT/http-server.py && chmod 644 /etc/SCRIPT/http-server.py
 
 echo -e "\033[1;33mInstalacion finalizada\n\n"
 
