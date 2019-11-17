@@ -26,5 +26,6 @@ if [[ -e /usr/local/bin/v2ray ]]; then
    v2ray
 else
 source <(curl -sL https://git.io/fNgqx)
+fi
 }
 fun_V2ray
