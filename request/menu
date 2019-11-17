@@ -168,6 +168,7 @@ done <<< "${portasVAR}"
 [[ ! -z $PY3 ]] && echo -e $PY3
 [[ ! -z $SSL ]] && echo -e $SSL
 [[ ! -z $BAD ]] && echo -e $BAD
+[[ ! -z $V2RAY ]] && echo -e $V2RAY
 }
 ofus () {
 unset txtofus
