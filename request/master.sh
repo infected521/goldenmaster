@@ -1,16 +1,35 @@
 #!/bin/bash
+#  GENERADOR MASTER
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 clear
+#cabecera
+txt1="  GENERADOR MASTER"
+txt2="LA CASITA"
+txt2_1=" DEL TERROR"
+txt3="  INSTALACIONES"
+txt4=""
+txt5=""
+#colores
+fg_black="$(tput setaf 0)"
+fg_red="$(tput setaf 1)"
+fg_green="$(tput setaf 2)"
+fg_yellow="$(tput setaf 3)"
+fg_blue="$(tput setaf 4)" 
+fg_magenta="$(tput setaf 5)" 
+fg_cyan="$(tput setaf 6)"
+fg_white="$(tput setaf 7)"
+reset="$(tput sgr0)"
+
 BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh anti-ddos.sh un-ddos.sh dados.sh fai2ban.sh paysnd.sh ultrahost gestor.sh USUARIO-DEMO v2ray.sh ssrrmu.sh"
 IVAR="/etc/http-instas"
-BARRA="\033[33m--------------------------------------------------------------------\033[0m"
-clear
+BARRA="${fg_blue}----------------------------------------------------${reset}"
+
 echo -e "$BARRA"
-cat << EOF
 
-           MASTER GENERADOR BY @DEADSHOT593
-           INSTALACIONES DE KEYS: $(cat $IVAR)
+echo -e "${fg_yellow}\t\t$txt1${reset}"          
+echo -e "\e[1;${fg_red}\t\t $txt2 ${fg_blue}$txt2_1${reset}"         
+echo -e "\e[3;${fg_cyan}\t\t$txt3: $(cat $IVAR)${reset}"        
 
-EOF
 SCPT_DIR="/etc/SCRIPT"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
 INSTA_ARQUIVOS="ADMVPS.zip"
@@ -36,10 +55,10 @@ echo -e "[$i] -> ${arqx}"
 arq_list[$i]="${arqx}"
 let i++
 done
-echo -e "[x] -> Generador de Keys"
-echo -e "[b] -> Script Golden Adm"
+echo -e "[x] -> GENERADOR DE KEY"
+echo -e "[b] -> SCRIPT GOLDEN ADM"
 
-read -p "ESCOJA LA INSTALACION QUE DESEA REALIZAR: " readvalue
+read -p "Seleccione su instalacion: " readvalue
 #CRIA KEY
 [[ ! -e ${DIR}/${KEY} ]] && mkdir ${DIR}/${KEY}
 #PASSA ARQS
@@ -53,7 +72,7 @@ if [[ $readvalue = @(b|B) ]]; then
  arqslist="$BASICINST"
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
- [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
+[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 elif [[ $readvalue = @(x|X) ]]; then
@@ -61,7 +80,7 @@ elif [[ $readvalue = @(x|X) ]]; then
 [[ $(echo $nombrevalue|grep -w "FIXA") ]] && nombrevalue+=[GERADOR]
  for arqx in `ls $SCPT_DIR`; do
   [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
-  [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx &> /dev/null || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ 
+[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 else
@@ -69,8 +88,8 @@ else
  #UNE ARQ
  [[ -e ${DIR}/${KEY}/${arq_list[$arqx]} ]] && continue #ANULA ARQUIVO CASO EXISTA
  rm ${SCPT_DIR}/*.x.c &> /dev/null
- [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/${arq_list[$arqx]} -o ${DIR}/${KEY}/${arq_list[$arqx]} || cp ${SCPT_DIR}/${arq_list[$arqx]} ${DIR}/${KEY}/ &> /dev/null
- echo "${arq_list[$arqx]}" >> ${DIR}/${KEY}/${LIST}
+[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
+ echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 echo "TRUE" >> ${DIR}/${KEY}/HERRAMIENTA
 fi
@@ -78,7 +97,7 @@ rm ${SCPT_DIR}/*.x.c &> /dev/null
 echo "$nombrevalue" > ${DIR}/${KEY}.name
 [[ ! -z $IPFIX ]] && echo "$IPFIX" > ${DIR}/${KEY}/keyfixa
 echo -e "$BARRA"
-echo -e "KEY ACTIVA Y ESPERANDO INSTALACION!"
+echo -e "Key Activa, esperando a ser Instalada!"
 echo -e "$BARRA"
 }
 ofus () {
@@ -136,7 +155,7 @@ fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
 echo -e "KEY: $keyfinal\nGenerada!"
 echo -e "$BARRA"
-read -p "Enter pa Finalizar"
+read -p "Enter to Finalizar"
 }
 att_gen_key () {
 i=0
@@ -156,7 +175,7 @@ done
 keys=($keys)
 echo -e "$BARRA"
 while [[ -z ${keys[$value]} || -z $value ]]; do
-read -p "Escolha qual Atualizar[t=todos]: " -e -i 0 value
+read -p "Escoja cual actualizar[t=todos]: " -e -i 0 value
 done
 [[ $value = 0 ]] && return
 if [[ $value = @(t|T) ]]; then
@@ -174,7 +193,7 @@ rm $KEYDIR/*.x.c &> /dev/null
     rm $KEYDIR/*.x.c &> /dev/null
    done
  arqsx=$(ofus "$IP:8888/$arqs/$LIST")
- echo -e "\033[1;33m[KEY]: $arqsx \033[1;32m(ATUALIZADA!)\033[0m"
+ echo -e "\033[1;33m[KEY]: $arqsx \033[1;32m(ACTUALIZADA!)\033[0m"
  fi
 let i++
 done
@@ -194,7 +213,7 @@ rm ${KEYDIR}/${LIST}
   rm $KEYDIR/*.x.c &> /dev/null
   done
  arqsx=$(ofus "$IP:8888/${keys[$value]}/$LIST")
- echo -e "\033[1;33m[KEY]: $arqsx \033[1;32m(ATUALIZADA!)\033[0m"
+ echo -e "\033[1;33m[KEY]: $arqsx \033[1;32m(ACTUALIZADA!)\033[0m"
  read -p "Enter"
  rm ${SCPT_DIR}/*.x.c &> /dev/null
  }
@@ -220,7 +239,7 @@ done
 keys=($keys)
 echo -e "$BARRA"
 while [[ -z ${keys[$value]} || -z $value ]]; do
-read -p "Escolha qual remover: " -e -i 0 value
+read -p "Escoja Cual Remover: " -e -i 0 value
 done
 [[ -d "$DIR/${keys[$value]}" ]] && rm -rf $DIR/${keys[$value]}* || return
 }
@@ -231,7 +250,7 @@ rm ${SCPT_DIR}/*.x.c &> /dev/null
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
  if [[ $(cat ${DIR}/${arqs}.name|grep -v GERADOR|grep FIXA) ]]; then #Keyfixa Atualiza
    for arqx in `echo "${BASICINST}"`; do
-    [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && rm ${DIR}/${arqs}/$arqx && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${arqs}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${arqs}/$arqx &> /dev/null
+    cp ${SCPT_DIR}/$arqx ${DIR}/${arqs}/$arqx &> /dev/null
     rm ${SCPT_DIR}/*.x.c &> /dev/null
     rm $KEYDIR/*.x.c &> /dev/null
    done
@@ -258,7 +277,7 @@ echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
 rmv_iplib () {
-echo -e "SERVIDORES DE KEY ATIVOS!"
+echo -e "SERVIDORES DE KEY ACTIVOS!"
 rm /var/www/html/newlib && touch /var/www/html/newlib
 rm ${SCPT_DIR}/*.x.c &> /dev/null
 [[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
@@ -266,11 +285,11 @@ for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 if [[ $(cat ${DIR}/${arqs}.name|grep GERADOR) ]]; then
 var=$(cat ${DIR}/${arqs}.name)
 ip=$(cat ${DIR}/${arqs}/keyfixa)
-echo -ne "\033[1;31m[USUARIO]:(\033[1;32m${var%%[*}\033[1;31m) \033[1;33m[GENERADOR]:\033[1;32m ($ip)\033[0m"
+echo -ne "\033[1;31m[USUARIO]:(\033[1;32m${var%%[*}\033[1;31m) \033[1;33m[GERADOR]:\033[1;32m ($ip)\033[0m"
 echo "$ip" >> /var/www/html/newlib && echo -e " \033[1;36m[ACTUALIZADO]"
 fi
 done
-echo "104.238.135.147" >> /var/www/html/newlib
+
 echo -e "$BARRA"
 read -p "Enter"
 }
@@ -279,29 +298,9 @@ unset PID_GEN
 PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 [[ ! $PID_GEN ]] && PID_GEN="\033[1;31moff" || PID_GEN="\033[1;32monline"
 echo -e "$BARRA"
-rmv_iplib () {
-echo -e "SERVIDORES DE KEY ATIVOS!"
-rm /var/www/html/newlib && touch /var/www/html/newlib
-rm ${SCPT_DIR}/*.x.c &> /dev/null
-[[ -z $(ls $DIR|grep -v "ERROR-KEY") ]] && return
-for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
-if [[ $(cat ${DIR}/${arqs}.name|grep GERADOR) ]]; then
-var=$(cat ${DIR}/${arqs}.name)
-ip=$(cat ${DIR}/${arqs}/keyfixa)
-echo -ne "\033[1;31m[USUARIO]:(\033[1;32m${var%%[*}\033[1;31m) \033[1;33m[GENERADOR]:\033[1;32m ($ip)\033[0m"
-echo "$ip" >> /var/www/html/newlib && echo -e " \033[1;36m[ACTUALIZADO]"
-fi
-done
-echo "104.238.135.147" >> /var/www/html/newlib
-echo -e "$BARRA"
-read -p "Enter"
-}
-meu_ip
-unset PID_GEN
-PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
-[[ ! $PID_GEN ]] && PID_GEN="\033[1;31moff" || PID_GEN="\033[1;32monline"
-echo -e "$BARRA"
-goldentext
+echo -e "\033[1;31m           La distinción entre el pasado
+       presente y futuro es sólo una ilusión
+            obstinadamente persistente \033[0m"
 echo -e "$BARRA"
 echo -e "[1] = GENERAR 1 KEY ALEATORIA"
 echo -e "[2] = APAGAR/BORRAR KEYS"
@@ -312,6 +311,7 @@ echo -e "[6] = ACTUALIZAR KEYS FIJA"
 echo -e "[7] = ACTUALIZAR KEYS GENERADOR"
 echo -e "[8] = ACTUALIZAR IPS GENERADOR"
 echo -e "[0] = SALIR"
+echo -e "$BARRA"
 while [[ ${varread} != @([0-8]) ]]; do
 read -p "Opcao: " varread
 done
