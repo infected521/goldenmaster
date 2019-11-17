@@ -51,6 +51,7 @@ if [[ ${selection} = "1" ]]; then
 clear
 [[ ! -e /usr/local/bin/v2ray ]] && source <(curl -sL https://git.io/fNgqx)
 v2ray
+exit 0
 elif [[ ${selection} = "2" ]]; then
 source <(curl -sL https://git.io/fNgqx) -k
 elif [[ ${selection} = "3" ]]; then
