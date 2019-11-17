@@ -6,6 +6,8 @@ SCPusr="${SCPdir}/ger-user"
 SCPfrm="/etc/ger-frm"
 SCPinst="/etc/ger-inst"
 SCPidioma="${SCPdir}/idioma"
+backv2ray="$HOME/backv2ray"
+src_v2ray="/etc/v2ray/config.json"
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 
 #COLORES
@@ -21,8 +23,10 @@ rst="$(tput sgr0)"
 
 txt[1]="PANEL V2RAY"
 txt[2]="ACTUALIZAR V2RAY MANTENIENDO USUARIOS"
-txt[3]="DESINSTALAR!"
-txt[4]="REGRESAR"
+txt[3]="BACKUP DE USUARIOS"
+txt[4]="RESTAURACION DE BACKUP"
+txt[5]="DESINSTALAR !"
+txt[6]="REGRESAR"
 
 meu_ip () {
 if [[ -e /etc/MEUIPADM ]]; then
@@ -36,14 +40,16 @@ fi
 }
 IP="$(meu_ip)"
 
-echo "${red} MENU DE ADMINISTRACION V2RAY"
-echo " [1] > $cyan ${txt[1]}"
-echo " [2] > $cyan ${txt[2]}"
-echo " [3] > [!] $yellow ${txt[3]}"
-echo " [0] > $magenta ${txt[4]}"
+echo "${red} MENU DE ADMINISTRACION V2RAY\n\n"
+echo " [1] > $blue ${txt[1]}"
+echo " [2] > $blue ${txt[2]}"
+echo " [3] > $blue ${txt[3]}"
+echo " [4] > $blue ${txt[4]}"
+echo " [5] > [!] $yellow ${txt[5]}"
+echo " [0] > $magenta ${txt[6]}"
 
 unset selection
-while [[ ${selection} != @([0-3]) ]]; do
+while [[ ${selection} != @([0-5]) ]]; do
 echo -ne "\033[33m${txt[7]}: " && read selection
 tput cuu1 && tput dl1
 done
@@ -55,6 +61,12 @@ exit 0
 elif [[ ${selection} = "2" ]]; then
 source <(curl -sL https://git.io/fNgqx) -k
 elif [[ ${selection} = "3" ]]; then
+[[ ! -d ${backv2ray} ]] && mkdir ${backv2ray}
+[[ ! -e ${backv2ray}/config.json ]] && read -p "NO EXISTE BACKUP PREVIO, SE REALIZARA BACKUP DE USUARIOS [presiona enter para continuar]: " enter && cp -f ${src_v2ray} ${backv2ray}
+[[ -e ${backv2ray}/config.json ]] && read -p "EXISTE UN BACKUP PREVIO AL CONTINAR SE REMPLAZARA LA BASE DE DATOS RESPALDADA [presiona enter para continuar]: " enter && cp -f ${src_v2ray} ${backv2ray}
+elif [[ ${selection} = "4" ]]; then
+[[ -e ${backv2ray}/config.json ]] && read -p "BACKUP ENCONTRADO, SE REMPLAZARA LA BASE DE DATOS ACTUAL POR LA DEL BACKUP [enter para continuar]: " enter && cp -f {backv2ray}/config.json ${src_v2ray}
+elif [[ ${selection} = "5" ]]; then
 source <(curl -sL https://git.io/fNgqx) --remove
 elif [[ ${selection} = "0" ]]; then
 cd $HOME
