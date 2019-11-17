@@ -19,8 +19,6 @@ echo "$MEU_IP2" > /etc/MEUIPADM
 fi
 }
 IP="$(meu_ip)"
-Block="/etc/crondbl" && [[ ! -d ${Block} ]] && exit
-Block > /dev/null 2>&1
 
 fun_V2ray () {
 if [[ -e /usr/local/bin/v2ray ]]; then
