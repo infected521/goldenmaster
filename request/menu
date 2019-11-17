@@ -155,6 +155,9 @@ PY3+="$Port ";;
 badvpn-ud)
 [[ -z $BAD ]] && local BAD="\033[1;31mBADVPN: \033[1;32m"
 BAD+="$Port ";;
+v2ray)
+[[ -z $V2RAY ]] && local V2RAY="\033[1;31mV2RAY: \033[1;32m"
+V2RAY+="$Port ";;
 esac
 done <<< "${portasVAR}"
 [[ ! -z $SQD ]] && echo -e $SQD
