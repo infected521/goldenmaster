@@ -8,6 +8,22 @@ SCPinst="/etc/ger-inst"
 SCPidioma="${SCPdir}/idioma"
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 
+#COLORES
+black="$(tput setaf 0)"
+red="$(tput setaf 1)"
+green="$(tput setaf 2)"
+yellow="$(tput setaf 3)"
+blue="$(tput setaf 4)"
+magenta="$(tput setaf 5)"
+cyan="$(tput setaf 6)"
+white="$(tput setaf 7)"
+rst="$(tput sgr0)"
+
+txt[1]="PANEL V2RAY"
+txt[2]="ACTUALIZAR V2RAY MANTENIENDO USUARIOS"
+txt[3]="DESINSTALAR!"
+txt[4]="REGRESAR"
+
 meu_ip () {
 if [[ -e /etc/MEUIPADM ]]; then
 echo "$(cat /etc/MEUIPADM)"
@@ -20,12 +36,30 @@ fi
 }
 IP="$(meu_ip)"
 
-fun_V2ray () {
-if [[ -e /usr/local/bin/v2ray ]]; then
+echo "$red\n\t\t\t\t MENU DE ADMINISTRACION V2RAY\n\n$rst"
+echo -ne "\033[33m [1] > " && $cyan "${txt[1]}"
+echo -ne "\033[33m [2] > " && $cyan "${txt[2]}"
+echo -ne "\033[33m [3] > \033[1;33m[!] " && $yellow "${txt[3]}"
+echo -ne "\033[33m [0] > " && $magenta "${txt[4]}"
+
+unset selection
+while [[ ${selection} != @([0-3]) ]]; do
+echo -ne "\033[33m${txt[7]}: " && read selection
+tput cuu1 && tput dl1
+done
+if [[ ${selection} = "1" ]]; then
+[[ -e /usr/local/bin/v2ray ]] &&
  clear
-   v2ray
-else
+v2ray
+[[ ! -e /usr/local/bin/v2ray ]] &&
+clear 
 source <(curl -sL https://git.io/fNgqx)
+elif [[ ${selection} = "2" ]]; then
+source <(curl -sL https://git.io/fNgqx) -k
+elif [[ ${selection} = "3" ]]; then
+source <(curl -sL https://git.io/fNgqx) --remove
+elif [[ ${selection} = "0" ]]; then
+cd $HOME
+exit 0
 fi
-}
-fun_V2ray
+${SCPdir}/menu
