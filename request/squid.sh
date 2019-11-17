@@ -255,6 +255,7 @@ fun_eth
 echo -ne " \033[1;31m [ ! ] \033[1;33m$(fun_trans ${id} "REINICIANDO SERVICOS")"
 squid3 -k reconfigure > /dev/null 2>&1
 service ssh restart > /dev/null 2>&1
+service squid restart > /dev/null 2>&1
 service squid3 restart > /dev/null 2>&1
 echo -e " \033[1;32m[OK]"
 echo -e "$barra\n ${cor[3]}$(fun_trans ${id} "SQUID CONFIGURADO")\n$barra"
