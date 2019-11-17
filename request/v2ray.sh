@@ -36,11 +36,11 @@ fi
 }
 IP="$(meu_ip)"
 
-echo -ne "${red} MENU DE ADMINISTRACION V2RAY"
-echo -ne " [1] >  && $cyan ${txt[1]}"
-echo -ne " [2] >  && $cyan ${txt[2]}"
-echo -ne " [3] >  [!]  && $yellow ${txt[3]}"
-echo -ne " [0] >  && $magenta ${txt[4]}"
+echo -e "${red} MENU DE ADMINISTRACION V2RAY"
+echo -e " [1] > $cyan ${txt[1]}"
+echo -e " [2] > $cyan ${txt[2]}"
+echo -e " [3] > [!] $yellow ${txt[3]}"
+echo -e " [0] > $magenta ${txt[4]}"
 
 unset selection
 while [[ ${selection} != @([0-3]) ]]; do
