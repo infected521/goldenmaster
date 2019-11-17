@@ -78,7 +78,7 @@ fi
 elif [[ ${selection} = "4" ]]; then {
 if [[ -e ${backv2ray}/config.json ]]; then
 read -p "BACKUP ENCONTRADO, SE REMPLAZARA LA BASE DE DATOS ACTUAL POR LA DEL BACKUP [enter para continuar]: " enter
-cp -f {backv2ray}/config.json ${src_v2ray}
+cp -f ${backv2ray}/config.json ${src_v2ray}
 echo "RESTAURACION FINALIZADA"
 read -p " Enter para continuar: " enter
 elif [[ ! -e ${backv2ray}/config.json ]]; then
