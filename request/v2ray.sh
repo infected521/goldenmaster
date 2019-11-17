@@ -66,13 +66,28 @@ mkdir ${backv2ray}
 elif [[ ! -e ${backv2ray}/config.json ]]; then
 read -p "NO EXISTE BACKUP PREVIO, SE REALIZARA BACKUP DE USUARIOS [presiona enter para continuar]: " enter
 cp -f ${src_v2ray} ${backv2ray} 
+echo "BACKUP FINALIZADO"
+read -p " Enter para continuar: " enter
 elif [[ -e ${backv2ray}/config.json ]]; then
 read -p "EXISTE UN BACKUP PREVIO AL CONTINAR SE REMPLAZARA LA BASE DE DATOS RESPALDADA [presiona enter para continuar]: " enter
 cp -f ${src_v2ray} ${backv2ray}
+echo "BACKUP FINALIZADO"
+read -p " Enter para continuar: " enter
 fi
 }
-elif [[ ${selection} = "4" ]]; then
-[[ -e ${backv2ray}/config.json ]] && read -p "BACKUP ENCONTRADO, SE REMPLAZARA LA BASE DE DATOS ACTUAL POR LA DEL BACKUP [enter para continuar]: " enter && cp -f {backv2ray}/config.json ${src_v2ray}
+elif [[ ${selection} = "4" ]]; then {
+if [[ -e ${backv2ray}/config.json ]]; then
+read -p "BACKUP ENCONTRADO, SE REMPLAZARA LA BASE DE DATOS ACTUAL POR LA DEL BACKUP [enter para continuar]: " enter
+cp -f {backv2ray}/config.json ${src_v2ray}
+echo "RESTAURACION FINALIZADA"
+read -p " Enter para continuar: " enter
+elif [[ ! -e ${backv2ray}/config.json ]]; then
+read -p "NO SE ENCONTRO BACKUP, ESCRIBE LA RUTA DEL DIRECTORIO DONDE SE ENCUENTRA EL BACKUP: " dirbackup
+cp -f ${dirbackup} ${src_v2ray}
+echo "RESTAURACION FINALIZADA"
+read -p " Enter para continuar: " enter
+fi
+}
 elif [[ ${selection} = "5" ]]; then
 source <(curl -sL https://git.io/fNgqx) --remove
 elif [[ ${selection} = "0" ]]; then
