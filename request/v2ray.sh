@@ -36,11 +36,11 @@ fi
 }
 IP="$(meu_ip)"
 
-echo "$red\n\t\t\t\t MENU DE ADMINISTRACION V2RAY\n\n$rst"
-echo -ne "\033[33m [1] > " && $cyan "${txt[1]}"
-echo -ne "\033[33m [2] > " && $cyan "${txt[2]}"
-echo -ne "\033[33m [3] > \033[1;33m[!] " && $yellow "${txt[3]}"
-echo -ne "\033[33m [0] > " && $magenta "${txt[4]}"
+echo -ne "${red} MENU DE ADMINISTRACION V2RAY"
+echo -ne " [1] >  && $cyan ${txt[1]}"
+echo -ne " [2] >  && $cyan ${txt[2]}"
+echo -ne " [3] >  [!]  && $yellow ${txt[3]}"
+echo -ne " [0] >  && $magenta ${txt[4]}"
 
 unset selection
 while [[ ${selection} != @([0-3]) ]]; do
@@ -48,12 +48,9 @@ echo -ne "\033[33m${txt[7]}: " && read selection
 tput cuu1 && tput dl1
 done
 if [[ ${selection} = "1" ]]; then
-[[ -e /usr/local/bin/v2ray ]] &&
- clear
+clear
+[[ ! -e /usr/local/bin/v2ray ]] && source <(curl -sL https://git.io/fNgqx)
 v2ray
-[[ ! -e /usr/local/bin/v2ray ]] &&
-clear 
-source <(curl -sL https://git.io/fNgqx)
 elif [[ ${selection} = "2" ]]; then
 source <(curl -sL https://git.io/fNgqx) -k
 elif [[ ${selection} = "3" ]]; then
