@@ -63,8 +63,12 @@ source <(curl -sL https://git.io/fNgqx) -k
 elif [[ ${selection} = "3" ]]; then {
 if [[ ! -d ${backv2ray} ]]; then
 mkdir ${backv2ray}
-elif [[ ! -e ${backv2ray}/config.json ]] && read -p "NO EXISTE BACKUP PREVIO, SE REALIZARA BACKUP DE USUARIOS [presiona enter para continuar]: " enter && cp -f ${src_v2ray} ${backv2ray} 
-elif [[ -e ${backv2ray}/config.json ]] && read -p "EXISTE UN BACKUP PREVIO AL CONTINAR SE REMPLAZARA LA BASE DE DATOS RESPALDADA [presiona enter para continuar]: " enter && cp -f ${src_v2ray} ${backv2ray}
+elif [[ ! -e ${backv2ray}/config.json ]]; then
+read -p "NO EXISTE BACKUP PREVIO, SE REALIZARA BACKUP DE USUARIOS [presiona enter para continuar]: " enter
+cp -f ${src_v2ray} ${backv2ray} 
+elif [[ -e ${backv2ray}/config.json ]]; then
+read -p "EXISTE UN BACKUP PREVIO AL CONTINAR SE REMPLAZARA LA BASE DE DATOS RESPALDADA [presiona enter para continuar]: " enter
+cp -f ${src_v2ray} ${backv2ray}
 fi
 }
 elif [[ ${selection} = "4" ]]; then
