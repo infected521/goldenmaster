@@ -20,7 +20,7 @@ fg_cyan="$(tput setaf 6)"
 fg_white="$(tput setaf 7)"
 reset="$(tput sgr0)"
 
-BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh anti-ddos.sh un-ddos.sh dados.sh fai2ban.sh paysnd.sh ultrahost gestor.sh USUARIO-DEMO v2ray.sh ssrrmu.sh"
+BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh anti-ddos.sh un-ddos.sh dados.sh fai2ban.sh paysnd.sh ultrahost gestor.sh USUARIO-DEMO v2ray.sh ssrrmu.sh toolmaster.py optimizar.sh"
 IVAR="/etc/http-instas"
 BARRA="${fg_blue}----------------------------------------------------${reset}"
 

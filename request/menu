@@ -392,7 +392,9 @@ case $1 in
 "utils.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "Badvpn/tcpspeed/squidcache/torrent";;
 "speed.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "TESTE DE VELOCIDADE") ";;
 "ultrahost")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "SCANNER DE SUBDOMINIO") ";;
-"ADMbot.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "BOT DE GERENCIAMENTO") TELEGRAN ";; 
+"ADMbot.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "BOT DE GERENCIAMENTO") TELEGRAN ";;
+"optimizar.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "OPTIMIZAR VPS") ";;
+"toolmaster.py")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "TOOL MASTER") ";;
 "speedtest.py")return 1;;
 *)echo -ne "\033[1;32m [$2] > " && msg -azu "${1^^} \033[1;33m($(fun_trans ${id} "Sem Descricao")!)";;
 esac

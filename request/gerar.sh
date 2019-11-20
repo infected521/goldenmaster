@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 # INSTALACAO BASICA
-BASICINST="menu message.txt ports.sh ADMbot.sh PGet.py usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh anti-ddos.sh un-ddos.sh USUARIO-DEMO dados.sh fai2ban.sh gestor.sh paysnd.sh ultrahost v2ray.sh ssrrmu.sh"
+BASICINST="menu message.txt ports.sh ADMbot.sh PGet.py usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh anti-ddos.sh un-ddos.sh USUARIO-DEMO dados.sh fai2ban.sh gestor.sh paysnd.sh ultrahost v2ray.sh ssrrmu.sh optimizar.sh toolmaster.py"
 IVAR="/etc/http-instas"
 IVAR2="/etc/key-gerador"
 cabecalho_fun () {
