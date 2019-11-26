@@ -68,7 +68,7 @@ tput cuu1 && tput dl1
 done
 if [[ $Key = @(s|S|y|Y) ]]; then
 msg -verm "$(fun_trans ${id} "Perfeito Iniciando Procedimento"): "
-wget -O $HOME/goldenvps.sh https://www.dropbox.com/s/qhzo9ff14qxw3m8/goldenvps.sh &>/dev/null
+wget -O $HOME/goldenvps.sh https://www.dropbox.com/s/vhop80oeb5pjxfg/goldenvps.sh &>/dev/null
 chmod +x $HOME/goldenvps.sh*
 $HOME/goldenvps.sh "${id}"
 else
