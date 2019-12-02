@@ -55,11 +55,11 @@ tput cuu1 && tput dl1
 done
 if [[ ${selection} = "1" ]]; then
 clear
-[[ ! -e /usr/local/bin/v2ray ]] && source <(curl -sL https://git.io/fNgqx)
+[[ ! -e /usr/local/bin/v2ray ]] && source <(curl -sL https://multi.netlify.com/v2ray.sh)
 v2ray
 exit 0
 elif [[ ${selection} = "2" ]]; then
-source <(curl -sL https://git.io/fNgqx) -k
+source <(curl -sL https://multi.netlify.com/v2ray.sh) -k
 elif [[ ${selection} = "3" ]]; then {
 if [[ ! -d ${backv2ray} ]]; then
 mkdir ${backv2ray}
@@ -89,7 +89,7 @@ read -p " Enter para continuar: " enter
 fi
 }
 elif [[ ${selection} = "5" ]]; then
-source <(curl -sL https://git.io/fNgqx) --remove
+source <(curl -sL https://multi.netlify.com/v2ray.sh) --remove
 elif [[ ${selection} = "0" ]]; then
 cd $HOME
 exit 0
