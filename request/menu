@@ -395,6 +395,8 @@ case $1 in
 "ADMbot.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "BOT DE GERENCIAMENTO") TELEGRAN ";;
 "optimizar.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "OPTIMIZAR VPS") ";;
 "toolmaster.py")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "TOOL MASTER") ";;
+"theharverest.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "SCANNER CHINGON") ";;
+"tshark.sh")echo -ne "\033[1;32m [$2] > " && msg -azu "$(fun_trans ${id} "SNIFFER VPS") ";;
 "speedtest.py")return 1;;
 *)echo -ne "\033[1;32m [$2] > " && msg -azu "${1^^} \033[1;33m($(fun_trans ${id} "Sem Descricao")!)";;
 esac
