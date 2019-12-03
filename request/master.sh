@@ -2,6 +2,18 @@
 #  GENERADOR MASTER
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games/
 clear
+
+#COLORES
+black="$(tput setaf 0)"
+red="$(tput setaf 1)"
+green="$(tput setaf 2)"
+yellow="$(tput setaf 3)"
+blue="$(tput setaf 4)"
+magenta="$(tput setaf 5)"
+cyan="$(tput setaf 6)"
+white="$(tput setaf 7)"
+rst="$(tput sgr0)"
+
 #cabecera
 txt1="  GENERADOR MASTER"
 txt2="LA CASITA"
@@ -276,6 +288,16 @@ read -p "NEW MESSAGE: " MSGNEW
 echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
+update_master () {
+printf "\n\t\t$red ACTUALIZADOR MASTER\n\n$srt"
+fun_bar 'apt install update -y'
+fun_bar 'apt install upgrade -y'
+fun_bar '$(wget https://www.dropbox.com/s/9dz82l0lotrfvcv/master.sh)> /dev/null 2>&1'
+fun_bar '$(chmod 755 master.sh > /dev/null 2>&1)'
+fun_bar '$(./master.sh > /dev/null 2>&1)'
+printf "\n\n\t$red ACTUALIZACION EXITOSA$rst"
+}
+
 rmv_iplib () {
 echo -e "SERVIDORES DE KEY ACTIVOS!"
 rm /var/www/html/newlib && touch /var/www/html/newlib
@@ -335,6 +357,8 @@ elif [[ ${varread} = 7 ]]; then
 att_gen_key
 elif [[ ${varread} = 8 ]]; then
 rmv_iplib
+elif [[ ${varread} = 9 ]]; then
+update_master
 elif [[ ${varread} = 0 ]]; then
 exit 0
 fi
