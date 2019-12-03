@@ -288,7 +288,7 @@ read -p "NEW MESSAGE: " MSGNEW
 echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
-update_master () {
+update_master() {
 printf "\n\t\t$red ACTUALIZADOR MASTER\n\n$srt"
 fun_bar '$(rm /etc/SCRIPT/*)'
 fun_bar 'apt install update -y'
