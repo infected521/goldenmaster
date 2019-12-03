@@ -332,9 +332,10 @@ echo -e "[5] = CAMBIAR MENSAJE"
 echo -e "[6] = ACTUALIZAR KEYS FIJA"
 echo -e "[7] = ACTUALIZAR KEYS GENERADOR"
 echo -e "[8] = ACTUALIZAR IPS GENERADOR"
+echo -e "[9] = ACTUALIZAR GENERADOR"
 echo -e "[0] = SALIR"
 echo -e "$BARRA"
-while [[ ${varread} != @([0-8]) ]]; do
+while [[ ${varread} != @([0-9]) ]]; do
 read -p "Opcao: " varread
 done
 echo -e "$BARRA"
