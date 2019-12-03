@@ -109,7 +109,7 @@ if [[ $readvalue = @(b|B) ]]; then
  arqslist="$BASICINST"
  for arqx in `echo "${arqslist}"`; do
  [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
-[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
+[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx &> /dev/null 2>&1 || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 elif [[ $readvalue = @(x|X) ]]; then
@@ -117,7 +117,7 @@ elif [[ $readvalue = @(x|X) ]]; then
 [[ $(echo $nombrevalue|grep -w "FIXA") ]] && nombrevalue+=[GERADOR]
  for arqx in `ls $SCPT_DIR`; do
   [[ -e ${DIR}/${KEY}/$arqx ]] && continue #ANULA ARQUIVO CASO EXISTA
-[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
+[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx &> /dev/null 2>&1 || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 else
@@ -125,7 +125,7 @@ else
  #UNE ARQ
  [[ -e ${DIR}/${KEY}/${arq_list[$arqx]} ]] && continue #ANULA ARQUIVO CASO EXISTA
  rm ${SCPT_DIR}/*.x.c &> /dev/null
-[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
+[[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && shc -r -f ${SCPT_DIR}/$arqx -o ${DIR}/${KEY}/$arqx &> /dev/null 2>&1 || cp ${SCPT_DIR}/$arqx ${DIR}/${KEY}/ &> /dev/null
  echo "$arqx" >> ${DIR}/${KEY}/${LIST}
  done
 echo "TRUE" >> ${DIR}/${KEY}/HERRAMIENTA
@@ -224,7 +224,7 @@ rm $KEYDIR/*.x.c &> /dev/null
  if [[ $(cat ${DIR}/${arqs}.name|grep GERADOR) ]]; then #Keyen Atualiza
  rm ${KEYDIR}/${LIST}
    for arqx in `ls $SCPT_DIR`; do
-    [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && rm ${KEYDIR}/$arqx && shc -r -f ${SCPT_DIR}/$arqx -o ${KEYDIR}/$arqx || cp ${SCPT_DIR}/$arqx ${KEYDIR}/$arqx &> /dev/null
+    [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && rm ${KEYDIR}/$arqx && shc -r -f ${SCPT_DIR}/$arqx -o ${KEYDIR}/$arqx &> /dev/null 2>&1 || cp ${SCPT_DIR}/$arqx ${KEYDIR}/$arqx &> /dev/null
     echo "${arqx}" >> ${KEYDIR}/${LIST}
     rm ${SCPT_DIR}/*.x.c &> /dev/null
     rm $KEYDIR/*.x.c &> /dev/null
@@ -244,7 +244,7 @@ KEYDIR="$DIR/${keys[$value]}"
 rm $KEYDIR/*.x.c &> /dev/null
 rm ${KEYDIR}/${LIST}
   for arqx in `ls $SCPT_DIR`; do
-  [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && rm ${KEYDIR}/$arqx && shc -r -f ${SCPT_DIR}/$arqx -o ${KEYDIR}/$arqx || cp ${SCPT_DIR}/$arqx ${KEYDIR}/$arqx &> /dev/null
+  [[ ${arqx#*.} != "py" ]] && [[ ${arqx#*.} != "txt" ]] && rm ${KEYDIR}/$arqx && shc -r -f ${SCPT_DIR}/$arqx -o ${KEYDIR}/$arqx &> /dev/null 2>&1 || cp ${SCPT_DIR}/$arqx ${KEYDIR}/$arqx &> /dev/null
   echo "${arqx}" >> ${KEYDIR}/${LIST}
   rm ${SCPT_DIR}/*.x.c &> /dev/null
   rm $KEYDIR/*.x.c &> /dev/null
