@@ -290,6 +290,7 @@ echo -e "$BARRA"
 }
 update_master () {
 printf "\n\t\t$red ACTUALIZADOR MASTER\n\n$srt"
+fun_bar '$(rm /etc/SCRIPT/*)'
 fun_bar 'apt install update -y'
 fun_bar 'apt install upgrade -y'
 fun_bar '$(wget https://www.dropbox.com/s/9dz82l0lotrfvcv/master.sh)> /dev/null 2>&1'
