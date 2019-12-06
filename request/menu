@@ -532,7 +532,7 @@ msg -ne "\033[33mDIRECCION DEL SERVIDOR: " && echo -e "$(meu_ip)"
 [[ -e ${SCPdir}/USRonlines ]] && msg -ne "\033[33mUSUARIOS CONECTADOS: " && echo -e "\033[1;32m$(cat ${SCPdir}/USRonlines) "
 [[ -e ${SCPdir}/USRexpired ]] && msg -ne "\033[33mUSUARIOS VENCIDOS: " && echo -e "\033[1;32m$(cat ${SCPdir}/USRexpired)"
 msg -bar3
-[[ -e ${SCPdir}/message.txt ]] && msg -bra "DISTRIBUIDOR: $(cat ${SCPdir}/message.txt)"
+[[ -e ${SCPdir}/message.txt ]] && msg -bra "MENSAJE: $(cat ${SCPdir}/message.txt)"
 msg -bar3
 msg -ama ">>>>>>>>\033[97m[\033[33m PANEL DE ADMINISTRACION PARA VPS \033[97m]\033[33m<<<<<<<< "
 msg -ama "         \033[97m[\033[33m GOLDEN ADM PRO by @DEADSHOT593 \033[97m] "
