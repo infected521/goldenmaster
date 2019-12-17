@@ -1173,10 +1173,9 @@ echo -e "$BARRA1"
 		View_user_connection_info_1 ""
 	elif [[ ${ssr_connection_info} == "2" ]]; then
 		echo -e "${Tip} ${blue_font_prefix}Detectar IP (ipip.net)puede llevar mas tiempo si hay muchas IPs${Font_color_suffix}"
+                View_user_connection_info_1 "IP_address"
        elif [[ ${ssr_connection_info} == "3" ]]; then
               ${SCPfrm}/ssrrmu.sh
-echo -e "$BARRA"
-		View_user_connection_info_1 "IP_address"
 	else
 		echo -e "${Error} Ingrese el numero correcto(1-2)" && exit 1
 	fi
